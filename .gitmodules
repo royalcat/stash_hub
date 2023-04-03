@@ -1,0 +1,4 @@
+[submodule "graphql/stash"]
+	path = graphql/stash
+	url = https://github.com/stashapp/stash
+	shallow = true
