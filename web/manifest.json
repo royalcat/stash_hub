@@ -1,6 +1,6 @@
 {
-    "name": "stash_ui",
-    "short_name": "stash_ui",
+    "name": "stash_hub",
+    "short_name": "stash_hub",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

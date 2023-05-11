@@ -1,4 +1,4 @@
-package com.example.stash_ui
+package com.example.stash_hub
 
 import io.flutter.embedding.android.FlutterActivity
 
