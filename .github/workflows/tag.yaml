@@ -1,4 +1,4 @@
-name: Tag release
+name: Build on commit
 
 on:
   push:
