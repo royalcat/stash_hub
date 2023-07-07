@@ -666,6 +666,7 @@ class Fragment$MovieData$scenes {
 
   final String? title;
 
+  @Deprecated('Use files.path')
   final String path;
 
   final String $__typename;

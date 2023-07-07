@@ -131,6 +131,7 @@ class Fragment$PerformerData {
 
   final String id;
 
+  @Deprecated('Not used')
   final String? checksum;
 
   final String name;

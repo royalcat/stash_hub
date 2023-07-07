@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 
-const appName = 'StashHub';
+const appName = 'TestApp';
 const stashColor = Color(0xFF137cbd);
 
 CustomColors lightCustomColors = const CustomColors(danger: Color(0xFFE53935));

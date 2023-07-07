@@ -5,6 +5,7 @@ import 'package:stashhub/screens/performers_list.dart';
 import 'package:stashhub/screens/scene_list.dart';
 
 import 'package:adaptive_navigation/adaptive_navigation.dart';
+import 'package:stashhub/screens/settings.dart';
 import 'package:stashhub/theme/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,19 +16,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const views = <Widget>[
-    GalleryListScreen(),
-    PerformersListScreen(),
+  static const _views = <Widget>[
     ScenesListScreen(),
+    PerformersListScreen(),
+    GalleryListScreen(),
   ];
-
-  int _selectedIndex = 0;
 
   static const _allDestinations = [
     AdaptiveScaffoldDestination(title: 'Scenes', icon: Icons.play_circle_outline),
     AdaptiveScaffoldDestination(title: 'Performers', icon: Icons.person_outline),
     AdaptiveScaffoldDestination(title: 'Galleries', icon: Icons.photo_album_outlined),
   ];
+
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +38,23 @@ class _HomeScreenState extends State<HomeScreen> {
       onDestinationSelected: (selection) => setState(() {
         _selectedIndex = selection;
       }),
-      appBar: AdaptiveAppBar(title: const Text(appName)),
-      body: views[_selectedIndex],
+      appBar: AdaptiveAppBar(
+        title: const Text(appName),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const StashPage(
+                  child: SettingsScreen(),
+                ),
+              ),
+            ),
+            icon: const Icon(Icons.settings),
+          )
+        ],
+      ),
+      body: _views[_selectedIndex],
       navigationTypeResolver: _defaultNavigationTypeResolver,
     );
   }

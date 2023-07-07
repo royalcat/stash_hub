@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stashhub/data_provider.dart';
 import 'package:stashhub/widgets/loading.dart';
 
@@ -13,7 +14,7 @@ class SceneScreen extends StatefulWidget {
 
 class _SceneScreenState extends State<SceneScreen> {
   Future<SceneData?> _fetchScene() async {
-    final rep = StashRepository();
+    final rep = Provider.of<StashRepository>(context, listen: false);
     return rep.findScene(widget.sceneId);
   }
 

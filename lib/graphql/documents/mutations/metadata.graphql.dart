@@ -3252,10 +3252,11 @@ extension ClientExtension$Mutation$MigrateHashNaming on graphql.GraphQLClient {
       mutate$MigrateHashNaming(
               [Options$Mutation$MigrateHashNaming? options]) async =>
           await this.mutate(options ?? Options$Mutation$MigrateHashNaming());
-  graphql.ObservableQuery<
-      Mutation$MigrateHashNaming> watchMutation$MigrateHashNaming(
-          [WatchOptions$Mutation$MigrateHashNaming? options]) =>
-      this.watchMutation(options ?? WatchOptions$Mutation$MigrateHashNaming());
+  graphql.ObservableQuery<Mutation$MigrateHashNaming>
+      watchMutation$MigrateHashNaming(
+              [WatchOptions$Mutation$MigrateHashNaming? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$MigrateHashNaming());
 }
 
 class Variables$Mutation$BackupDatabase {

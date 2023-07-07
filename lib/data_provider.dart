@@ -26,10 +26,13 @@ class Pagination {
 }
 
 class StashRepository {
-  final GraphQLClient client = GraphQLClient(
-    cache: GraphQLCache(),
-    link: HttpLink('http://192.168.2.1:9998/graphql'),
-  );
+  final GraphQLClient client;
+
+  StashRepository({required String address})
+      : client = GraphQLClient(
+          cache: GraphQLCache(),
+          link: HttpLink('$address/graphql'),
+        );
 
   Future<List<SlimGalleryData>?> findGalleries({
     Pagination? pagination = const Pagination(1, 20),

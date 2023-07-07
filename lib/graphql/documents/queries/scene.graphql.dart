@@ -1235,10 +1235,11 @@ extension ClientExtension$Query$FindScenesByPathRegex on graphql.GraphQLClient {
       query$FindScenesByPathRegex(
               [Options$Query$FindScenesByPathRegex? options]) async =>
           await this.query(options ?? Options$Query$FindScenesByPathRegex());
-  graphql.ObservableQuery<
-      Query$FindScenesByPathRegex> watchQuery$FindScenesByPathRegex(
-          [WatchOptions$Query$FindScenesByPathRegex? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$FindScenesByPathRegex());
+  graphql.ObservableQuery<Query$FindScenesByPathRegex>
+      watchQuery$FindScenesByPathRegex(
+              [WatchOptions$Query$FindScenesByPathRegex? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$FindScenesByPathRegex());
   void writeQuery$FindScenesByPathRegex({
     required Query$FindScenesByPathRegex data,
     Variables$Query$FindScenesByPathRegex? variables,
@@ -4167,6 +4168,7 @@ class Query$ParseSceneFilenames$parseSceneFilenames$results {
 
   final String? date;
 
+  @Deprecated('Use 1-100 range with rating100')
   final int? rating;
 
   final String? studio_id;

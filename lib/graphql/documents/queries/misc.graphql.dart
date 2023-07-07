@@ -990,10 +990,11 @@ extension ClientExtension$Query$AllPerformersForFilter
       query$AllPerformersForFilter(
               [Options$Query$AllPerformersForFilter? options]) async =>
           await this.query(options ?? Options$Query$AllPerformersForFilter());
-  graphql.ObservableQuery<
-      Query$AllPerformersForFilter> watchQuery$AllPerformersForFilter(
-          [WatchOptions$Query$AllPerformersForFilter? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$AllPerformersForFilter());
+  graphql.ObservableQuery<Query$AllPerformersForFilter>
+      watchQuery$AllPerformersForFilter(
+              [WatchOptions$Query$AllPerformersForFilter? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$AllPerformersForFilter());
   void writeQuery$AllPerformersForFilter({
     required Query$AllPerformersForFilter data,
     bool broadcast = true,

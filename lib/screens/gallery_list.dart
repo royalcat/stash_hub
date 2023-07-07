@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stashhub/data_provider.dart';
 import 'package:stashhub/screens/gallery.dart';
 import 'package:stashhub/screens/home.dart';
@@ -17,7 +18,7 @@ class GalleryListScreen extends StatefulWidget {
 
 class _GalleryListScreenState extends State<GalleryListScreen> {
   Future<List<MyListItemData>?> _fetchPage(Pagination pagination) async {
-    final rep = StashRepository();
+    final rep = Provider.of<StashRepository>(context, listen: false);
     final galleries = await rep.findGalleries(
       performerId: widget.performerId,
       pagination: pagination,

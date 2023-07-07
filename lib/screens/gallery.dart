@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stashhub/data_provider.dart';
 import 'package:stashhub/graphql/documents/data/image-slim.graphql.dart';
 import 'package:stashhub/widgets/gallery.dart';
@@ -21,19 +22,16 @@ class GalleryScreen extends StatefulWidget {
 
 class _GalleryScreenState extends State<GalleryScreen> {
   Future<List<MyListItemData>> _fetchPage() async {
-    final rep = StashRepository();
-    final imageList =
-        await rep.findImages(galleryId: widget.galleryId, pagination: null) ?? <SlimImageData>{};
+    final rep = Provider.of<StashRepository>(context, listen: false);
+    final imageList = await rep.findImages(galleryId: widget.galleryId) ?? <SlimImageData>{};
     return imageList
         .mapIndexed((i, e) => MyListItemData(
               imageUrl: e.paths.thumbnail,
               name: firstNotEmptyString([e.title, e.paths.image], "Untitled"),
               onTap: () => showImageViewerPager(
-                  context,
-                  MultiImageProvider(
-                    imageList.map((e) => Image.network(e.paths.image!).image).toList(),
-                    initialIndex: i,
-                  )),
+                context,
+                StashImageProvider(rep, widget.galleryId, widget.imageCount),
+              ),
             ))
         .toList();
   }
@@ -58,12 +56,13 @@ class _GalleryScreenState extends State<GalleryScreen> {
 class StashImageProvider implements EasyImageProvider {
   final String galleryId;
   static const int _perPage = 20;
+  final StashRepository repository;
 
   final List<Fragment$SlimImageData> _images = [];
   @override
   final int imageCount;
 
-  StashImageProvider(this.galleryId, this.imageCount);
+  StashImageProvider(this.repository, this.galleryId, this.imageCount);
 
   @override
   Future<ImageProvider<Object>> imageBuilder(BuildContext context, int index) async {
@@ -72,7 +71,7 @@ class StashImageProvider implements EasyImageProvider {
     }
     if (index > _images.length) {
       final startPage = _images.length ~/ _perPage;
-      final newImages = await StashRepository().findImages(
+      final newImages = await repository.findImages(
         galleryId: galleryId,
         pagination: Pagination(startPage, _perPage),
       );

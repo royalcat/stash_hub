@@ -937,10 +937,11 @@ extension ClientExtension$Subscription$LoggingSubscribe
       subscribe$LoggingSubscribe(
               [Options$Subscription$LoggingSubscribe? options]) =>
           this.subscribe(options ?? Options$Subscription$LoggingSubscribe());
-  graphql.ObservableQuery<
-      Subscription$LoggingSubscribe> watchSubscription$LoggingSubscribe(
-          [WatchOptions$Subscription$LoggingSubscribe? options]) =>
-      this.watchQuery(options ?? WatchOptions$Subscription$LoggingSubscribe());
+  graphql.ObservableQuery<Subscription$LoggingSubscribe>
+      watchSubscription$LoggingSubscribe(
+              [WatchOptions$Subscription$LoggingSubscribe? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Subscription$LoggingSubscribe());
 }
 
 class Subscription$ScanCompleteSubscribe {

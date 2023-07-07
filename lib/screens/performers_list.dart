@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stashhub/data_provider.dart';
 import 'package:stashhub/screens/home.dart';
 import 'package:stashhub/screens/performer.dart';
@@ -15,7 +16,7 @@ class PerformersListScreen extends StatefulWidget {
 
 class _PerformersListScreenState extends State<PerformersListScreen> {
   Future<List<MyListItemData>?> _fetchPage(Pagination pagination) async {
-    final rep = StashRepository();
+    final rep = Provider.of<StashRepository>(context, listen: false);
     final performers = await rep.findPerformers(pagination: pagination);
     return performers
         ?.map((e) => MyListItemData(

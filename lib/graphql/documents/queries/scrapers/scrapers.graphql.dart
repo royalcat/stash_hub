@@ -23,6 +23,7 @@ class Query$ListPerformerScrapers {
     );
   }
 
+  @Deprecated('Use listScrapers(types: [PERFORMER])')
   final List<Query$ListPerformerScrapers$listPerformerScrapers>
       listPerformerScrapers;
 
@@ -340,10 +341,11 @@ extension ClientExtension$Query$ListPerformerScrapers on graphql.GraphQLClient {
       query$ListPerformerScrapers(
               [Options$Query$ListPerformerScrapers? options]) async =>
           await this.query(options ?? Options$Query$ListPerformerScrapers());
-  graphql.ObservableQuery<
-      Query$ListPerformerScrapers> watchQuery$ListPerformerScrapers(
-          [WatchOptions$Query$ListPerformerScrapers? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$ListPerformerScrapers());
+  graphql.ObservableQuery<Query$ListPerformerScrapers>
+      watchQuery$ListPerformerScrapers(
+              [WatchOptions$Query$ListPerformerScrapers? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$ListPerformerScrapers());
   void writeQuery$ListPerformerScrapers({
     required Query$ListPerformerScrapers data,
     bool broadcast = true,
@@ -755,6 +757,7 @@ class Query$ListSceneScrapers {
     );
   }
 
+  @Deprecated('Use listScrapers(types: [SCENE])')
   final List<Query$ListSceneScrapers$listSceneScrapers> listSceneScrapers;
 
   final String $__typename;
@@ -1457,6 +1460,7 @@ class Query$ListGalleryScrapers {
     );
   }
 
+  @Deprecated('Use listScrapers(types: [GALLERY])')
   final List<Query$ListGalleryScrapers$listGalleryScrapers> listGalleryScrapers;
 
   final String $__typename;
@@ -2175,6 +2179,7 @@ class Query$ListMovieScrapers {
     );
   }
 
+  @Deprecated('Use listScrapers(types: [MOVIE])')
   final List<Query$ListMovieScrapers$listMovieScrapers> listMovieScrapers;
 
   final String $__typename;

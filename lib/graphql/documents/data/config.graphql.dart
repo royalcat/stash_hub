@@ -265,10 +265,13 @@ class Fragment$ConfigGeneralData {
 
   final String? customPerformerImageLocation;
 
+  @Deprecated('use ConfigResult.scraping instead')
   final String? scraperUserAgent;
 
+  @Deprecated('use ConfigResult.scraping instead')
   final bool scraperCertCheck;
 
+  @Deprecated('use ConfigResult.scraping instead')
   final String? scraperCDPPath;
 
   final List<Fragment$ConfigGeneralData$stashBoxes> stashBoxes;
@@ -4535,6 +4538,7 @@ class Fragment$ScraperSourceData {
     );
   }
 
+  @Deprecated('use stash_box_endpoint')
   final int? stash_box_index;
 
   final String? stash_box_endpoint;
@@ -5487,8 +5491,10 @@ class Fragment$ConfigDefaultSettingsData$scan {
     );
   }
 
+  @Deprecated('Not implemented')
   final bool useFileMetadata;
 
+  @Deprecated('Not implemented')
   final bool stripFileExtension;
 
   final bool scanGenerateCovers;

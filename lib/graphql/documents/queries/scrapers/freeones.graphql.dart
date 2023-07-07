@@ -117,6 +117,7 @@ class Query$ScrapeFreeonesPerformers {
     );
   }
 
+  @Deprecated('use scrapeSinglePerformer with scraper_id = builtin_freeones')
   final List<String> scrapeFreeonesPerformerList;
 
   final String $__typename;
